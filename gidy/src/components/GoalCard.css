@@ -1,0 +1,92 @@
+ .career-goal-card{
+        background: var(--card);
+  color: var(--text);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    padding: 20px 24px;
+    width: 100%;
+        
+}
+
+.section-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+
+
+.gaol-header{
+           font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    
+}
+
+
+.gaol{
+    width: 50%;
+}
+.goal-card-btn{
+    cursor: pointer;
+    background-color: rgb(17, 24, 39);
+    color: rgb(255, 255, 255);
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+
+
+@media (max-width: 768px) {
+    .career-goal-card{
+        background-color: rgb(255, 255, 255);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    padding: 20px 24px;
+        
+}
+
+.section-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+
+}
+.gaol{
+    width: 100%;
+}
+
+.gaol-header{
+        font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.goal-card-btn{
+    cursor: pointer;
+    background-color: rgb(17, 24, 39);
+    color: rgb(255, 255, 255);
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+}

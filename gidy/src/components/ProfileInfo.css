@@ -1,0 +1,544 @@
+ .profile-info-card {
+  padding: 20px 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px #959da533;
+  margin-bottom: 5px;
+  
+}
+
+.profile-information {
+  width: 100%;
+}
+
+.profile-header {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.username-info {
+     display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.username {
+    color: #111827;
+    font-size: 18px;
+    font-weight: 600 !important;
+    word-break: break-word;
+}
+
+.username .education {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.location {
+     color: #6b7280;
+    font-size: 14px !important;
+    font-weight: 500;
+}
+
+.profile-bio {
+     display: flex;
+    flex-direction: column !important;
+    width: 100%;
+}
+
+.profile-bio .profile-bio-info {
+  width: 100%;
+}
+
+.profile-bio-main {
+     margin-top: 10px;
+    width: 90%;
+}
+
+.profile-bio-text {
+     color: #111827;
+    font-size: 14px !important;
+    font-weight: 400;
+}
+
+.profile-bio-info-2 {
+       display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.gmail {
+ 
+ align-items: center;
+    display: flex;
+    margin: 5px 0;
+  
+}
+
+.gmail .gmail-id{
+        color: #06f;
+    font-size: 14px !important;
+    font-weight: 400;
+    word-break: break-word;
+}
+
+.gmail .mail-icon {
+  color: #06f;
+  /* font-size: 20px; */
+  margin-right: 5px;
+}
+
+.download-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.download-btn .button {
+    align-items: center;
+    background-color: #cce0ff;
+    border: 1px solid #4285f44d;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 5px 15px;
+    transition: .3s;
+        color: rgb(0, 102, 255);
+    font-size: 20px;
+}
+
+.rewards {
+     display: flex;
+    flex-direction: column !important;
+    gap: 8px;
+}
+
+.rewardname {
+  background-color: #f1f5f94d;
+  border: 0.2px solid #e5e7eb;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-around;
+  margin: 5px 0;
+  padding: 5px 16px;
+}
+
+.categories {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reward-detail {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reward-title {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.view-all-rewards {
+      align-items: center;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: flex-end;
+    width: 100%;
+}
+.view-all-rewards p {
+  color: #fdb100;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dots-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  width: 150px;
+}
+
+.dropdown-menu p {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-menu p:hover {
+  background: #f3f3f3;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 6%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ 
+}
+.modal h2{
+   font-size: 12px;
+}
+
+.profile-name{
+  width: 100%;
+}
+
+.lable-name{
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.photo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-picture{
+  height: 90px;
+  width: 90px;
+border-radius: 50%;
+}
+
+.profile-picture img{
+  height: 100%;
+  width: 100%;
+border-radius: 50%;
+}
+
+
+
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 10px;
+
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .profile-info-card {
+  padding: 10px 12px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px #959da533;
+  margin-bottom: 5px;
+}
+
+.profile-information {
+  width: 100%;
+}
+
+.profile-header {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.avatar {
+  width: 70px;
+  height: 50px;
+  background: url("https://i.pravatar.cc/150") center/cover;
+  border-radius: 50%;
+}
+
+.username-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.username {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 500;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.username .education {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.location {
+  color: #6b7280;
+  font-size: 14px !important;
+  font-weight: 500;
+}
+
+.profile-bio {
+  display: flex;
+  flex-direction: column !important;
+  width: 100%;
+}
+
+.profile-bio .profile-bio-info {
+  width: 100%;
+}
+
+.profile-bio-main {
+  margin-top: 10px;
+  width: 90%;
+}
+
+.profile-bio-text {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.profile-bio-info-2 {
+    margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.gmail {
+ 
+  display: flex;
+   align-items: center;
+  margin: 5px 0;
+  
+}
+
+.gmail .gmail-id{
+        color: #06f;
+    font-size: 14px !important;
+    font-weight: 400;
+    word-break: break-word;
+}
+
+.gmail .mail-icon {
+  color: #06f;
+  /* font-size: 20px; */
+  margin-right: 5px;
+}
+
+.download-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.download-btn .button {
+  align-items: center;
+  background-color: #cce0ff;
+  border: 1px solid #4285f44d;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 5px 15px;
+  transition: 0.3s;
+  color: #06f;
+  font-size: 14px !important;
+  font-weight: 400;
+  margin-left: 5px !important;
+}
+
+.rewards {
+  display: flex;
+  flex-direction: column !important;
+  gap: 8px;
+}
+
+.rewardname {
+  background-color: #f1f5f94d;
+  border: 0.2px solid #e5e7eb;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-around;
+  margin: 5px 0;
+  padding: 5px 16px;
+}
+
+.categories {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reward-detail {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reward-title {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.view-all-rewards {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  justify-content: flex-end;
+  width: 100%;
+}
+.view-all-rewards p {
+  color: #fdb100;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dots-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  width: 150px;
+}
+
+.dropdown-menu p {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-menu p:hover {
+  background: #f3f3f3;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 6%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ 
+}
+.modal h2{
+   font-size: 12px;
+}
+
+.profile-name{
+  width: 100%;
+}
+
+.lable-name{
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.photo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-picture{
+  height: 90px;
+  width: 90px;
+border-radius: 50%;
+}
+
+.profile-picture img{
+  height: 100%;
+  width: 100%;
+border-radius: 50%;
+}
+
+
+
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 10px;
+
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+  
+}
