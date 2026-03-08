@@ -1,6 +1,6 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { IconPlus, IconSchool } from "@tabler/icons-react";
+import { IconPlus, IconSchool, IconTrash } from "@tabler/icons-react";
 import { Timeline, Text } from "@mantine/core";
 
 /* ----------- TYPES ----------- */
@@ -46,10 +46,7 @@ const Education: React.FC = () => {
   const email = localStorage.getItem("email");
 
   useEffect(() => {
-    fetchEducation();
-  }, []);
-
-  const fetchEducation = async () => {
+     const fetchEducation = async () => {
     try {
 
       const res = await axios.get<EducationType[]>(
@@ -63,6 +60,10 @@ const Education: React.FC = () => {
       console.error("Error fetching education:", error);
     }
   };
+    fetchEducation();
+  },);
+
+ 
 
   /* -------- DATE FORMAT -------- */
 
@@ -77,7 +78,7 @@ const Education: React.FC = () => {
 
   /* -------- HANDLE INPUT -------- */
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
     const { name, value, type, checked } = e.target;
 
@@ -114,12 +115,24 @@ const Education: React.FC = () => {
       );
 
       setShowModal(false);
-      fetchEducation();
+      
 
     } catch (error) {
       console.error("Error adding education:", error);
     }
   };
+
+  const handleDeleteEducation = async (id: number) => {
+  try {
+    await axios.delete(
+      `http://localhost:5000/education/delete-education/${id}`
+    );
+
+    setEducations((prev) => prev.filter((edu) => edu.id !== id));
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
 
@@ -158,7 +171,17 @@ const Education: React.FC = () => {
             <Timeline.Item
               key={edu.id}
               bullet={<IconSchool size={14} />}
-              title={edu.degree}
+              title={
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {edu.degree}
+
+        <IconTrash
+          size={16}
+          style={{ cursor: "pointer", color: "red" }}
+          onClick={() => handleDeleteEducation(edu.id)}
+        />
+      </div>
+    }
             >
 
               <Text size="sm" fw={500}>

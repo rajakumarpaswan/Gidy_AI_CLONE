@@ -24,4 +24,15 @@ const getEducationByEmail = async (email) => {
   return result.rows;
 };
 
-module.exports = { addEducation, getEducationByEmail };
+const deleteEducation = async (id) => {
+  const result = await pool.query(
+    `DELETE FROM education
+     WHERE id = $1
+     RETURNING *`,
+    [id]
+  );
+
+  return result.rows[0];
+};
+
+module.exports = { addEducation, getEducationByEmail,deleteEducation };

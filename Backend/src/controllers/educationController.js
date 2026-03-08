@@ -1,4 +1,4 @@
-const { addEducation, getEducationByEmail } = require("../models/educationModel");
+const { addEducation, getEducationByEmail, deleteEducation } = require("../models/educationModel");
 
 const addEducationController = async (req, res, next) => {
   try {
@@ -19,4 +19,23 @@ const getEducationController = async (req, res, next) => {
   }
 };
 
-module.exports = { addEducationController, getEducationController };
+const deleteEducationController = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const deletedEducation = await deleteEducation(id);
+
+    if (!deletedEducation) {
+      return res.status(404).json({ message: "Education not found" });
+    }
+
+    res.json({
+      message: "Education deleted successfully",
+      data: deletedEducation,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { addEducationController, getEducationController, deleteEducationController };

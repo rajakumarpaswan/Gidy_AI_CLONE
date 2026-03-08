@@ -17,4 +17,7 @@ const getSkillsByEmail = async (email) => {
   return result.rows;
 };
 
+
+
+
 module.exports = { addSkill, getSkillsByEmail };

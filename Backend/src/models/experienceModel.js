@@ -22,4 +22,17 @@ const getExperienceByEmail = async (email) => {
   return result.rows;
 };
 
-module.exports = { addExperience, getExperienceByEmail };
+/* ---------- DELETE EXPERIENCE ---------- */
+
+const deleteExperience = async (id) => {
+  const result = await pool.query(
+    `DELETE FROM experience
+     WHERE id = $1
+     RETURNING *`,
+    [id]
+  );
+
+  return result.rows[0];
+};
+
+module.exports = { addExperience, getExperienceByEmail,deleteExperience };

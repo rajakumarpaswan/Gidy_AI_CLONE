@@ -1,4 +1,4 @@
-const { addExperience, getExperienceByEmail } = require("../models/experienceModel");
+const { addExperience, getExperienceByEmail, deleteExperience } = require("../models/experienceModel");
 
 const addExperienceController = async (req, res, next) => {
   try {
@@ -19,4 +19,28 @@ const getExperienceController = async (req, res, next) => {
   }
 };
 
-module.exports = { addExperienceController, getExperienceController };
+
+/* ---------- DELETE CONTROLLER ---------- */
+
+const deleteExperienceController = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const deletedExperience = await deleteExperience(id);
+
+    if (!deletedExperience) {
+      return res.status(404).json({ message: "Experience not found" });
+    }
+
+    res.json({
+      message: "Experience deleted successfully",
+      data: deletedExperience,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+console.log(deleteExperience);
+
+module.exports = { addExperienceController, getExperienceController,deleteExperienceController };

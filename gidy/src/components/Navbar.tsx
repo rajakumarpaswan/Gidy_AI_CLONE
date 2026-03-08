@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Navbar.css";
 import { IconMenu2 } from "@tabler/icons-react";
-import { useTheme } from "../context/ThemeContext";
-import { IconSun, IconMoon } from "@tabler/icons-react";
+
+import ThemeToggle from "./ThemeToggle";
 
 
 
@@ -10,7 +10,7 @@ import { IconSun, IconMoon } from "@tabler/icons-react";
 const Navbar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
-     const { theme, toggleTheme } = useTheme();
+    //  const { theme, toggleTheme } = useTheme();
 
 
    
@@ -45,9 +45,7 @@ const Navbar = () => {
       {/* PROFILE */}
       <div className="nav-right">
 
-           <button  style={{borderRadius:"50px" ,padding:"2px"}} onClick={toggleTheme}>
-      {theme === "light" ? <IconMoon /> : <IconSun />}
-    </button>
+            <ThemeToggle />
         <div className="avatar-small">R</div>
         <span className="mobile-dropdown">▼</span>
       </div>

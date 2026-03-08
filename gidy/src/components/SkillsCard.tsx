@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect } from "react";
 import { IconPlus } from "@tabler/icons-react";
 import axios from "axios";
 import "./SkillsCard.css";
@@ -20,10 +20,7 @@ const SkillsCard: React.FC = () => {
   /* ---------- FETCH SKILLS ---------- */
 
   useEffect(() => {
-    fetchSkills();
-  }, []);
-
-  const fetchSkills = async () => {
+     const fetchSkills = async () => {
 
     try {
 
@@ -41,6 +38,10 @@ const SkillsCard: React.FC = () => {
     }
 
   };
+    fetchSkills();
+  }, [email]);
+
+ 
 
   /* ---------- ADD SKILL ---------- */
 
@@ -59,7 +60,7 @@ const SkillsCard: React.FC = () => {
       setSkillInput("");
       setShowModal(false);
 
-      fetchSkills(); // refresh list
+     
 
     } catch (error) {
       console.error(error);
@@ -69,7 +70,7 @@ const SkillsCard: React.FC = () => {
 
   /* ---------- INPUT CHANGE ---------- */
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSkillInput(e.target.value);
   };
 

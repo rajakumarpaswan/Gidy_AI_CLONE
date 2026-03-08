@@ -35,7 +35,8 @@
 .goal-card-btn{
     cursor: pointer;
     background-color: rgb(17, 24, 39);
-    color: rgb(255, 255, 255);
+     color: var(--text);
+
     padding: 10px 16px;
     border-radius: 10px;
     font-size: 14px;
@@ -50,7 +51,8 @@
 
 @media (max-width: 768px) {
     .career-goal-card{
-        background-color: rgb(255, 255, 255);
+          background: var(--card);
+  color: var(--text);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 15px;
     margin-bottom: 5px;
@@ -79,7 +81,8 @@
 .goal-card-btn{
     cursor: pointer;
     background-color: rgb(17, 24, 39);
-    color: rgb(255, 255, 255);
+      color: var(--text);
+
     padding: 10px 16px;
     border-radius: 10px;
     font-size: 14px;

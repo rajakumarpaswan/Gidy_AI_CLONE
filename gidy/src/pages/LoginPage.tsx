@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "../components/ThemeToggle";
 
 const LoginPage: React.FC = () => {
   const [name, setName] = useState("");
@@ -33,21 +34,15 @@ const LoginPage: React.FC = () => {
     }
   };
   return (
-//     <div className="login-page">
-//       <div className="">
-//             
-//             <div className="text">
-//                
-       
-//       
-//       </div>
-    
-//     </div>
+
 
 <div className="log">
   <div className="login-text">
     <div className="">
       <div className="login-head" style={{paddingTop:"10px"}}>
+        <div>
+          <ThemeToggle/>
+        </div>
       <h2 style={{textAlign:"center" }}>Login</h2>
     </div>
     <div className="login-para" style={{marginTop:"10px"}}>

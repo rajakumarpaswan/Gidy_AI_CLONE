@@ -1,7 +1,8 @@
-import { useEffect, useState, ChangeEvent } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { IconPlus } from "@tabler/icons-react";
 import "./LevelCard.css";
+import { Progress } from "@mantine/core";
 
 /* ---------- TYPES ---------- */
 
@@ -22,6 +23,10 @@ interface MissingStatus {
   certifications: boolean;
 }
 
+// interface ApiListResponse<T> {
+//   data: T[];
+// }
+
 interface FormDataType {
   certification: string;
   provider: string;
@@ -39,7 +44,7 @@ const LevelUpCard: React.FC = () => {
   const [certifications, setCertifications] = useState<CertificationType[]>([]);
   const [progress, setProgress] = useState<number>(0);
 
-  const [missing, setMissing] = useState<MissingStatus>({
+  const [ missing, setMissing] = useState<MissingStatus>({
     skills: false,
     experience: false,
     education: false,
@@ -60,7 +65,55 @@ const LevelUpCard: React.FC = () => {
 
   /* ---------- FETCH CERTIFICATIONS ---------- */
 
-  const fetchCertifications = async () => {
+
+
+
+
+  useEffect(() => {
+      const calculateProfileProgress = async () => {
+
+  if (!email) return;
+
+  try {
+
+    const [skillsRes, expRes, eduRes, certRes] = await Promise.all([
+
+      axios.get<unknown[]>("http://localhost:5000/skills", { params: { email } }),
+      axios.get<unknown[]>("http://localhost:5000/experience", { params: { email } }),
+      axios.get<unknown[]>("http://localhost:5000/education", { params: { email } }),
+      axios.get<unknown[]>("http://localhost:5000/certifications", { params: { email } })
+
+    ]);
+
+    const sections = [
+      skillsRes.data.length,
+      expRes.data.length,
+      eduRes.data.length,
+      certRes.data.length
+    ];
+
+    let score = 20; // profile base score
+
+    const status: MissingStatus = {
+      skills: sections[0] === 0,
+      experience: sections[1] === 0,
+      education: sections[2] === 0,
+      certifications: sections[3] === 0
+    };
+
+    sections.forEach((count) => {
+      if (count > 0) score += 20;
+    });
+
+    setProgress(score);
+    setMissing(status);
+
+  } catch (error) {
+    console.error(error);
+  }
+};
+    calculateProfileProgress();
+      const fetchCertifications = async () => {
 
     try {
 
@@ -76,71 +129,12 @@ const LevelUpCard: React.FC = () => {
     }
 
   };
-
-  useEffect(() => {
-    calculateProfileProgress();
     fetchCertifications();
-  }, []);
+  }, [email]);
 
   /* ---------- PROFILE PROGRESS ---------- */
 
-  const calculateProfileProgress = async () => {
-
-    try {
-
-      const [skills, experience, education, certs] = await Promise.all([
-
-        axios.get<any[]>("http://localhost:5000/skills", { params: { email } }),
-        axios.get<any[]>("http://localhost:5000/experience", { params: { email } }),
-        axios.get<any[]>("http://localhost:5000/education", { params: { email } }),
-        axios.get<any[]>("http://localhost:5000/certifications", { params: { email } })
-
-      ]);
-
-      let score = 0;
-
-      const status: MissingStatus = {
-        skills: false,
-        experience: false,
-        education: false,
-        certifications: false
-      };
-
-      if (skills.data.length > 0) {
-        score += 20;
-      } else {
-        status.skills = true;
-      }
-
-      if (experience.data.length > 0) {
-        score += 20;
-      } else {
-        status.experience = true;
-      }
-
-      if (education.data.length > 0) {
-        score += 20;
-      } else {
-        status.education = true;
-      }
-
-      if (certs.data.length > 0) {
-        score += 20;
-      } else {
-        status.certifications = true;
-      }
-
-      // profile info always present
-      score += 20;
-
-      setProgress(score);
-      setMissing(status);
-
-    } catch (error) {
-      console.error(error);
-    }
-
-  };
+ 
 
   /* ---------- PROGRESS COLOR ---------- */
 
@@ -155,7 +149,7 @@ const LevelUpCard: React.FC = () => {
 
   /* ---------- FORM HANDLERS ---------- */
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 
     const { name, value } = e.target;
 
@@ -182,8 +176,7 @@ const LevelUpCard: React.FC = () => {
 
       setShowModal(false);
 
-      fetchCertifications();
-      calculateProfileProgress();
+    
 
     } catch (error) {
       console.error(error);
@@ -207,23 +200,20 @@ const LevelUpCard: React.FC = () => {
 
       {/* PROGRESS BAR */}
 
-      <div className="progress-bar">
+    <div className="progress-bar">
 
-        <p className="progress-text">Progress {progress}%</p>
+  <p className="progress-text">Progress {progress}%</p>
 
-        <div className="range-bar">
+  <Progress
+    value={progress}
+    size="lg"
+    radius="xl"
+    color={getColor()}
+    animated
+    striped
+  />
 
-          <input
-            type="range"
-            value={progress}
-            max="100"
-            readOnly
-            style={{ accentColor: getColor() }}
-          />
-
-        </div>
-
-      </div>
+</div>
 
       <div className="add-icon" onClick={() => setShowModal(true)}>
         <IconPlus />

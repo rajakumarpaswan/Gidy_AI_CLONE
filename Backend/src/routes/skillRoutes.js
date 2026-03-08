@@ -5,4 +5,5 @@ const { addSkillController, getSkillsController } = require("../controllers/skil
 router.post("/add", addSkillController);
 router.get("/", getSkillsController);
 
+
 module.exports = router;

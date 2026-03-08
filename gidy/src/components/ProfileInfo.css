@@ -1,6 +1,7 @@
  .profile-info-card {
   padding: 20px 20px;
-  background-color: #fff;
+    background: var(--bg-card);
+  color: var(--text-color);
   border-radius: 15px;
   box-shadow: 0 8px 24px #959da533;
   margin-bottom: 5px;
@@ -16,6 +17,7 @@
     display: flex;
     gap: 16px;
     justify-content: center;
+    color: var(--text-color);
 }
 
 .avatar {
@@ -32,7 +34,7 @@
 }
 
 .username {
-    color: #111827;
+   color: var(--text-color);
     font-size: 18px;
     font-weight: 600 !important;
     word-break: break-word;
@@ -41,6 +43,7 @@
 .username .education {
   font-size: 12px;
   margin-left: 10px;
+  color: var(--text-color);
 }
 
 .location {
@@ -68,6 +71,7 @@
      color: #111827;
     font-size: 14px !important;
     font-weight: 400;
+    color: var(--text-color);
 }
 
 .profile-bio-info-2 {
@@ -270,7 +274,8 @@ border-radius: 50%;
 @media (max-width: 768px) {
   .profile-info-card {
   padding: 10px 12px;
-  background-color: #fff;
+  background: var(--bg-card);
+  color: var(--text-color);
   border-radius: 15px;
   box-shadow: 0 8px 24px #959da533;
   margin-bottom: 5px;
@@ -285,6 +290,7 @@ border-radius: 50%;
   display: flex;
   gap: 16px;
   justify-content: center;
+  color: var(--text-color);
 }
 
 .avatar {
@@ -337,7 +343,7 @@ border-radius: 50%;
 }
 
 .profile-bio-text {
-  color: #111827;
+  color: var(--text-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
